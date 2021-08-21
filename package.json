@@ -1,0 +1,33 @@
+{
+  "name": "tree-sitter-tenable-audit",
+  "version": "1.0.0",
+  "description": "A grammar for Tenable .audit files.",
+  "main": "bindings/node",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bsinglet/tree-sitter-tenable-audit.git"
+  },
+  "keywords": [
+    "Tenable",
+    "audit",
+    "tree",
+    "sitter",
+    "Atom",
+    "syntax"
+  ],
+  "author": "Benjamin M. Singleton",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/bsinglet/tree-sitter-tenable-audit/issues"
+  },
+  "homepage": "https://github.com/bsinglet/tree-sitter-tenable-audit#readme",
+  "dependencies": {
+    "nan": "^2.15.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.20.0"
+  }
+}
