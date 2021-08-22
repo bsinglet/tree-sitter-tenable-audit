@@ -12,7 +12,7 @@ module.exports = grammar({
     _check_type_end: $ => /<\/check_type>/,
 
     // removed $.comment,
-    contents: $ => choice($._if_block, $.item, $.custom_item, $.acl_block, $.report),
+    contents: $ => choice($._if_block, $.item_block, $.custom_item_block, $.acl_block, $.report),
 
     comment: $ => repeat1($.single_line_comment),
 
@@ -21,14 +21,37 @@ module.exports = grammar({
     _if_block: $ => seq($.if_block_start, $.condition_block, $.then_block, optional($.else_block), $.if_block_end),
 
     if_block_start: $ => /<\s*if\s*>/,
-    condition_block: $ => seq(/<condition>/),
-    then_block: $ => seq(/<then>/),
-    else_block: $ => seq(/else>/),
+
+    // TODO - Verify that $.contents is the correct value inside of the condition block, or if it's just `item`s and `custom_item`s
+    condition_block: $ => seq($.condition_block_start, repeat($.contents), $.condition_block_end),
+
+    condition_block_start: $ => seq(/<condition type\s*:\s*/, choice(/"or"/, /"and"/), />/),
+
+    condition_block_end: $ => /<\/condition>/,
+
+    then_block: $ => seq($.then_block_start, $.contents, $.then_block_end),
+
+    then_block_start: $ => /<then>/,
+
+    then_block_end: $ => /<\/then>/,
+
+    else_block: $ => seq($.else_block_start, $.contents, $.else_block_end),
+
+    else_block_start: $ => /<else>/,
+
+    else_block_end: $ => /<\/else>/,
+
     if_block_end: $ => seq(/<\/if>/),
 
-    item: $ => seq(/<item>/),
+    item_block: $ => seq($.item_block_start, repeat1($.item_contents), $.item_block_end),
 
-    custom_item: $ => seq(/<custom_item>/),
+    item_block_start: $ => /<item>/,
+
+    item_contents: $ => choice(/value/),
+
+    item_block_end: $ => /<\/item>/,
+
+    custom_item_block: $ => seq(/<custom_item>/),
 
     acl_block: $ => seq(/<acl>/),
 

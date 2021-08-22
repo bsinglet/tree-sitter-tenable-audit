@@ -45,11 +45,11 @@
         },
         {
           "type": "SYMBOL",
-          "name": "item"
+          "name": "item_block"
         },
         {
           "type": "SYMBOL",
-          "name": "custom_item"
+          "name": "custom_item_block"
         },
         {
           "type": "SYMBOL",
@@ -113,28 +113,101 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "PATTERN",
-          "value": "<condition>"
+          "type": "SYMBOL",
+          "name": "condition_block_start"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "contents"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "condition_block_end"
         }
       ]
+    },
+    "condition_block_start": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "<condition type\\s*:\\s*"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": "\"or\""
+            },
+            {
+              "type": "PATTERN",
+              "value": "\"and\""
+            }
+          ]
+        },
+        {
+          "type": "PATTERN",
+          "value": ">"
+        }
+      ]
+    },
+    "condition_block_end": {
+      "type": "PATTERN",
+      "value": "<\\/condition>"
     },
     "then_block": {
       "type": "SEQ",
       "members": [
         {
-          "type": "PATTERN",
-          "value": "<then>"
+          "type": "SYMBOL",
+          "name": "then_block_start"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "contents"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "then_block_end"
         }
       ]
+    },
+    "then_block_start": {
+      "type": "PATTERN",
+      "value": "<then>"
+    },
+    "then_block_end": {
+      "type": "PATTERN",
+      "value": "<\\/then>"
     },
     "else_block": {
       "type": "SEQ",
       "members": [
         {
-          "type": "PATTERN",
-          "value": "else>"
+          "type": "SYMBOL",
+          "name": "else_block_start"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "contents"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "else_block_end"
         }
       ]
+    },
+    "else_block_start": {
+      "type": "PATTERN",
+      "value": "<else>"
+    },
+    "else_block_end": {
+      "type": "PATTERN",
+      "value": "<\\/else>"
     },
     "if_block_end": {
       "type": "SEQ",
@@ -145,16 +218,44 @@
         }
       ]
     },
-    "item": {
+    "item_block": {
       "type": "SEQ",
       "members": [
         {
-          "type": "PATTERN",
-          "value": "<item>"
+          "type": "SYMBOL",
+          "name": "item_block_start"
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "item_contents"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "item_block_end"
         }
       ]
     },
-    "custom_item": {
+    "item_block_start": {
+      "type": "PATTERN",
+      "value": "<item>"
+    },
+    "item_contents": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "value"
+        }
+      ]
+    },
+    "item_block_end": {
+      "type": "PATTERN",
+      "value": "<\\/item>"
+    },
+    "custom_item_block": {
       "type": "SEQ",
       "members": [
         {
