@@ -1,11 +1,112 @@
 [
   {
-    "type": "source_file",
+    "type": "acl_block",
     "named": true,
     "fields": {}
   },
   {
-    "type": "hello",
-    "named": false
+    "type": "condition_block",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "contents",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "acl_block",
+          "named": true
+        },
+        {
+          "type": "condition_block",
+          "named": true
+        },
+        {
+          "type": "custom_item",
+          "named": true
+        },
+        {
+          "type": "else_block",
+          "named": true
+        },
+        {
+          "type": "if_block_end",
+          "named": true
+        },
+        {
+          "type": "if_block_start",
+          "named": true
+        },
+        {
+          "type": "item",
+          "named": true
+        },
+        {
+          "type": "report",
+          "named": true
+        },
+        {
+          "type": "then_block",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "custom_item",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "else_block",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "if_block_end",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "item",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "report",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "contents",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "then_block",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "if_block_start",
+    "named": true
+  },
+  {
+    "type": "single_line_comment",
+    "named": true
   }
 ]

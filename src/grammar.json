@@ -2,8 +2,184 @@
   "name": "tenable_audit",
   "rules": {
     "source_file": {
-      "type": "STRING",
-      "value": "hello"
+      "type": "REPEAT1",
+      "content": {
+        "type": "SYMBOL",
+        "name": "_check_type_block"
+      }
+    },
+    "_check_type_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_check_type_start"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "contents"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_check_type_end"
+        }
+      ]
+    },
+    "_check_type_start": {
+      "type": "PATTERN",
+      "value": "<\\s*check_type\\s*:\\s*\"Windows\"\\s*version\\s*:\\s*\"2\"\\s*>"
+    },
+    "_check_type_end": {
+      "type": "PATTERN",
+      "value": "<\\/check_type>"
+    },
+    "contents": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_if_block"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "item"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "custom_item"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "acl_block"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "report"
+        }
+      ]
+    },
+    "comment": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "SYMBOL",
+        "name": "single_line_comment"
+      }
+    },
+    "single_line_comment": {
+      "type": "PATTERN",
+      "value": "#.*"
+    },
+    "_if_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "if_block_start"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "condition_block"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "then_block"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "else_block"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "if_block_end"
+        }
+      ]
+    },
+    "if_block_start": {
+      "type": "PATTERN",
+      "value": "<\\s*if\\s*>"
+    },
+    "condition_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "<condition>"
+        }
+      ]
+    },
+    "then_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "<then>"
+        }
+      ]
+    },
+    "else_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "else>"
+        }
+      ]
+    },
+    "if_block_end": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "<\\/if>"
+        }
+      ]
+    },
+    "item": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "<item>"
+        }
+      ]
+    },
+    "custom_item": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "<custom_item>"
+        }
+      ]
+    },
+    "acl_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "<acl>"
+        }
+      ]
+    },
+    "report": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "<report>"
+        }
+      ]
     }
   },
   "extras": [
