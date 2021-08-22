@@ -8,6 +8,23 @@
         "name": "_check_type_block"
       }
     },
+    "double_quoted_string": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\""
+        },
+        {
+          "type": "PATTERN",
+          "value": "([A-Z]|[a-z]|\\s|(\\r)?\\n|\\d)*"
+        },
+        {
+          "type": "PATTERN",
+          "value": "\""
+        }
+      ]
+    },
     "_check_type_block": {
       "type": "SEQ",
       "members": [
@@ -226,11 +243,8 @@
           "name": "item_block_start"
         },
         {
-          "type": "REPEAT1",
-          "content": {
-            "type": "SYMBOL",
-            "name": "item_contents"
-          }
+          "type": "SYMBOL",
+          "name": "item_contents"
         },
         {
           "type": "SYMBOL",
@@ -243,13 +257,96 @@
       "value": "<item>"
     },
     "item_contents": {
-      "type": "CHOICE",
+      "type": "REPEAT1",
+      "content": {
+        "type": "SYMBOL",
+        "name": "generic_tag_value_pair"
+      }
+    },
+    "generic_tag_value_pair": {
+      "type": "SEQ",
       "members": [
         {
           "type": "PATTERN",
-          "value": "value"
+          "value": "[a-z][a-z|_]*\\s*:\\s*"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "generic_tag_value"
         }
       ]
+    },
+    "generic_tag_value": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "unquoted_keyword"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "value_data_dword"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "value_data_range"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "double_quoted_string"
+        }
+      ]
+    },
+    "value_data_dword": {
+      "type": "PATTERN",
+      "value": "[+|-]?\\d+(\\.\\d+)?"
+    },
+    "value_data_range": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\["
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": "MIN"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "value_data_dword"
+            }
+          ]
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\.\\."
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": "MAX"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "value_data_dword"
+            }
+          ]
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\]"
+        }
+      ]
+    },
+    "unquoted_keyword": {
+      "type": "PATTERN",
+      "value": "[a-z][a-z|_]*"
     },
     "item_block_end": {
       "type": "PATTERN",
@@ -261,6 +358,17 @@
         {
           "type": "PATTERN",
           "value": "<custom_item>"
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "generic_tag_value_pair"
+          }
+        },
+        {
+          "type": "PATTERN",
+          "value": "<\\/custom_item>"
         }
       ]
     },

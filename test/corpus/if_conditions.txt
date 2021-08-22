@@ -1,0 +1,209 @@
+========================
+Or conditions - 1 check
+========================
+<check_type:"Windows" version:"2">
+  <if>
+    <condition type:"or">
+      <item>
+        value: 5
+      </item>
+    </condition>
+    <then>
+      <item>
+        value: 5
+      </item>
+    </then>
+  </if>
+</check_type>
+
+---
+
+(source_file
+  (contents
+    (if_block_start)
+    (condition_block
+      (condition_block_start)
+      (contents
+        (item_block
+          (item_block_start)
+          (item_contents
+            (generic_tag_value_pair
+              (generic_tag_value
+                (value_data_dword))))
+        (item_block_end)))
+      (condition_block_end))
+    (then_block
+      (then_block_start)
+      (contents
+        (item_block
+          (item_block_start)
+          (item_contents
+            (generic_tag_value_pair
+              (generic_tag_value
+                (value_data_dword))))
+          (item_block_end)))
+        (then_block_end))
+    (if_block_end)))
+
+=========================
+Or conditions - 2 checks
+=========================
+
+<check_type:"Windows" version:"2">
+  <if>
+    <condition type:"or">
+      <item>
+        value: 5
+      </item>
+      <item>
+        value: 5
+      </item>
+    </condition>
+    <then>
+      <item>
+        value: 5
+      </item>
+    </then>
+  </if>
+</check_type>
+
+---
+
+(source_file
+  (contents
+    (if_block_start)
+    (condition_block
+      (condition_block_start)
+      (contents
+        (item_block
+          (item_block_start)
+          (item_contents)
+          (item_block_end)))
+      (contents
+        (item_block
+          (item_block_start)
+          (item_contents)
+          (item_block_end)))
+      (condition_block_end))
+    (then_block
+      (then_block_start)
+      (contents
+        (item_block
+          (item_block_start)
+          (item_contents)
+          (item_block_end)))
+      (then_block_end))
+    (if_block_end)))
+
+=========================
+And conditions - 3 checks
+=========================
+
+<check_type:"Windows" version:"2">
+  <if>
+    <condition type:"and">
+      <item>
+        value: 5
+      </item>
+      <item>
+        value: 5
+      </item>
+      <item>
+        value: 5
+      </item>
+    </condition>
+    <then>
+      <item>
+        value: 5
+      </item>
+    </then>
+  </if>
+</check_type>
+
+---
+
+(source_file
+  (contents
+    (if_block_start)
+    (condition_block
+      (condition_block_start)
+      (contents
+        (item_block
+          (item_block_start)
+          (item_contents)
+          (item_block_end)))
+      (contents
+        (item_block
+          (item_block_start)
+          (item_contents)
+          (item_block_end)))
+      (contents
+        (item_block
+          (item_block_start)
+          (item_contents)
+          (item_block_end)))
+      (condition_block_end))
+    (then_block
+      (then_block_start)
+      (contents
+        (item_block
+          (item_block_start)
+          (item_contents)
+          (item_block_end)))
+      (then_block_end))
+    (if_block_end)))
+
+============
+Else blocks
+============
+
+<check_type:"Windows" version:"2">
+  <if>
+    <condition type:"or">
+      <item>
+        value: 2
+      </item>
+    </condition>
+    <then>
+      <item>
+        value: 1
+      </item>
+    </then>
+    <else>
+      <item>
+        value: 2
+      </item>
+    </else>
+  </if>
+</check_type>
+
+---
+
+(source_file
+  (contents
+    (if_block_start)
+    (condition_block
+      (condition_block_start)
+      (contents
+        (item_block
+          (item_block_start)
+          (item_contents)
+          (item_block_end)))
+      (condition_block_end))
+    (then_block
+      (then_block_start)
+      (contents
+        (item_block
+          (item_block_start)
+          (item_contents)
+          (item_block_end)))
+      (then_block_end))
+    (else_block
+      (else_block_start)
+      (contents
+        (item_block
+          (item_block_start)
+          (item_contents)
+          (item_block_end)))
+      (else_block_end))
+    (if_block_end)))
