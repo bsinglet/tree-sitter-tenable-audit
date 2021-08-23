@@ -1,5 +1,5 @@
 module.exports = grammar({
-  name: 'tenable_audit',
+  name: 'tree-sitter-tenable-audit',
 
   rules: {
     // TODO: Modify this so you can have comments at the beginning or the end.
