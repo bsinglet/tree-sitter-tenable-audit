@@ -12,9 +12,9 @@
 #define ALIAS_COUNT 0
 #define TOKEN_COUNT 31
 #define EXTERNAL_TOKEN_COUNT 0
-#define FIELD_COUNT 0
+#define FIELD_COUNT 2
 #define MAX_ALIAS_SEQUENCE_LENGTH 5
-#define PRODUCTION_ID_COUNT 1
+#define PRODUCTION_ID_COUNT 2
 
 enum {
   aux_sym_double_quoted_string_token1 = 1,
@@ -34,7 +34,7 @@ enum {
   sym_else_block_end = 15,
   aux_sym_if_block_end_token1 = 16,
   sym_item_block_start = 17,
-  aux_sym_generic_tag_value_pair_token1 = 18,
+  sym_generic_tag_key = 18,
   sym_value_data_dword = 19,
   sym_value_data_min = 20,
   sym_value_data_max = 21,
@@ -89,7 +89,7 @@ static const char * const ts_symbol_names[] = {
   [sym_else_block_end] = "else_block_end",
   [aux_sym_if_block_end_token1] = "if_block_end_token1",
   [sym_item_block_start] = "item_block_start",
-  [aux_sym_generic_tag_value_pair_token1] = "generic_tag_value_pair_token1",
+  [sym_generic_tag_key] = "generic_tag_key",
   [sym_value_data_dword] = "value_data_dword",
   [sym_value_data_min] = "value_data_min",
   [sym_value_data_max] = "value_data_max",
@@ -144,7 +144,7 @@ static const TSSymbol ts_symbol_map[] = {
   [sym_else_block_end] = sym_else_block_end,
   [aux_sym_if_block_end_token1] = aux_sym_if_block_end_token1,
   [sym_item_block_start] = sym_item_block_start,
-  [aux_sym_generic_tag_value_pair_token1] = aux_sym_generic_tag_value_pair_token1,
+  [sym_generic_tag_key] = sym_generic_tag_key,
   [sym_value_data_dword] = sym_value_data_dword,
   [sym_value_data_min] = sym_value_data_min,
   [sym_value_data_max] = sym_value_data_max,
@@ -253,9 +253,9 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = true,
     .named = true,
   },
-  [aux_sym_generic_tag_value_pair_token1] = {
-    .visible = false,
-    .named = false,
+  [sym_generic_tag_key] = {
+    .visible = true,
+    .named = true,
   },
   [sym_value_data_dword] = {
     .visible = true,
@@ -389,6 +389,27 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = false,
     .named = false,
   },
+};
+
+enum {
+  field_key = 1,
+  field_value = 2,
+};
+
+static const char * const ts_field_names[] = {
+  [0] = NULL,
+  [field_key] = "key",
+  [field_value] = "value",
+};
+
+static const TSFieldMapSlice ts_field_map_slices[PRODUCTION_ID_COUNT] = {
+  [1] = {.index = 0, .length = 2},
+};
+
+static const TSFieldMapEntry ts_field_map_entries[] = {
+  [0] =
+    {field_key, 0},
+    {field_value, 1},
 };
 
 static const TSSymbol ts_alias_sequences[PRODUCTION_ID_COUNT][MAX_ALIAS_SEQUENCE_LENGTH] = {
@@ -1045,7 +1066,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       ACCEPT_TOKEN(sym_item_block_start);
       END_STATE();
     case 163:
-      ACCEPT_TOKEN(aux_sym_generic_tag_value_pair_token1);
+      ACCEPT_TOKEN(sym_generic_tag_key);
       if (lookahead == '\t' ||
           lookahead == '\n' ||
           lookahead == '\r' ||
@@ -1489,7 +1510,7 @@ static const uint16_t ts_small_parse_table[] = {
       aux_sym_report_token1,
   [326] = 3,
     ACTIONS(64), 1,
-      aux_sym_generic_tag_value_pair_token1,
+      sym_generic_tag_key,
     ACTIONS(67), 2,
       sym_item_block_end,
       sym_custom_item_block_end,
@@ -1498,7 +1519,7 @@ static const uint16_t ts_small_parse_table[] = {
       aux_sym_item_contents_repeat1,
   [338] = 3,
     ACTIONS(69), 1,
-      aux_sym_generic_tag_value_pair_token1,
+      sym_generic_tag_key,
     ACTIONS(71), 2,
       sym_item_block_end,
       sym_custom_item_block_end,
@@ -1532,7 +1553,7 @@ static const uint16_t ts_small_parse_table[] = {
       aux_sym_source_file_repeat1,
   [385] = 3,
     ACTIONS(69), 1,
-      aux_sym_generic_tag_value_pair_token1,
+      sym_generic_tag_key,
     STATE(44), 1,
       sym_item_contents,
     STATE(20), 2,
@@ -1540,7 +1561,7 @@ static const uint16_t ts_small_parse_table[] = {
       aux_sym_item_contents_repeat1,
   [396] = 3,
     ACTIONS(69), 1,
-      aux_sym_generic_tag_value_pair_token1,
+      sym_generic_tag_key,
     STATE(46), 1,
       sym_item_contents,
     STATE(20), 2,
@@ -1548,22 +1569,22 @@ static const uint16_t ts_small_parse_table[] = {
       aux_sym_item_contents_repeat1,
   [407] = 1,
     ACTIONS(84), 3,
-      aux_sym_generic_tag_value_pair_token1,
+      sym_generic_tag_key,
       sym_item_block_end,
       sym_custom_item_block_end,
   [413] = 1,
     ACTIONS(86), 3,
-      aux_sym_generic_tag_value_pair_token1,
+      sym_generic_tag_key,
       sym_item_block_end,
       sym_custom_item_block_end,
   [419] = 1,
     ACTIONS(88), 3,
-      aux_sym_generic_tag_value_pair_token1,
+      sym_generic_tag_key,
       sym_item_block_end,
       sym_custom_item_block_end,
   [425] = 1,
     ACTIONS(90), 3,
-      aux_sym_generic_tag_value_pair_token1,
+      sym_generic_tag_key,
       sym_item_block_end,
       sym_custom_item_block_end,
   [431] = 3,
@@ -1744,7 +1765,7 @@ static const TSParseActionEntry ts_parse_actions[] = {
   [84] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_value_data_range, 5),
   [86] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_double_quoted_string, 3),
   [88] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_generic_tag_value, 1),
-  [90] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_generic_tag_value_pair, 2),
+  [90] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_generic_tag_value_pair, 2, .production_id = 1),
   [92] = {.entry = {.count = 1, .reusable = true}}, SHIFT(37),
   [94] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym__check_type_block, 3),
   [96] = {.entry = {.count = 1, .reusable = true}}, SHIFT(50),
@@ -1792,6 +1813,9 @@ extern const TSLanguage *tree_sitter_tenableAudit(void) {
     .small_parse_table_map = ts_small_parse_table_map,
     .parse_actions = ts_parse_actions,
     .symbol_names = ts_symbol_names,
+    .field_names = ts_field_names,
+    .field_map_slices = ts_field_map_slices,
+    .field_map_entries = ts_field_map_entries,
     .symbol_metadata = ts_symbol_metadata,
     .public_symbol_map = ts_symbol_map,
     .alias_map = ts_non_terminal_alias_map,

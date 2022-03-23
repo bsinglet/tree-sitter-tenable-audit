@@ -267,14 +267,26 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "PATTERN",
-          "value": "([a-z]|[A-Z]||_)+\\s*:\\s*"
+          "type": "FIELD",
+          "name": "key",
+          "content": {
+            "type": "SYMBOL",
+            "name": "generic_tag_key"
+          }
         },
         {
-          "type": "SYMBOL",
-          "name": "generic_tag_value"
+          "type": "FIELD",
+          "name": "value",
+          "content": {
+            "type": "SYMBOL",
+            "name": "generic_tag_value"
+          }
         }
       ]
+    },
+    "generic_tag_key": {
+      "type": "PATTERN",
+      "value": "([a-z]|[A-Z]||_)+\\s*:\\s*"
     },
     "generic_tag_value": {
       "type": "CHOICE",

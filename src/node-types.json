@@ -160,16 +160,27 @@
   {
     "type": "generic_tag_value_pair",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "generic_tag_value",
-          "named": true
-        }
-      ]
+    "fields": {
+      "key": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "generic_tag_key",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "generic_tag_value",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -299,6 +310,10 @@
   },
   {
     "type": "else_block_start",
+    "named": true
+  },
+  {
+    "type": "generic_tag_key",
     "named": true
   },
   {

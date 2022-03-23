@@ -16,6 +16,7 @@ Value data - DWORD value
       (item_block_start)
       (item_contents
         (generic_tag_value_pair
+          (generic_tag_key)
           (generic_tag_value
             (value_data_dword))))
       (item_block_end))))
@@ -38,6 +39,7 @@ Value data - Range - 2 DWORDS
       (item_block_start)
       (item_contents
         (generic_tag_value_pair
+          (generic_tag_key)
           (generic_tag_value
             (value_data_range
                   (value_data_dword)
@@ -62,6 +64,7 @@ Value data - Range - MIN and DWORD
       (item_block_start)
       (item_contents
         (generic_tag_value_pair
+          (generic_tag_key)
           (generic_tag_value
             (value_data_range
                   (value_data_min)
@@ -86,6 +89,7 @@ Value data - Range - DWORD and MAX
       (item_block_start)
       (item_contents
         (generic_tag_value_pair
+          (generic_tag_key)
           (generic_tag_value
             (value_data_range
                   (value_data_dword)
@@ -110,6 +114,7 @@ Value data - Range - MIN and MAX
       (item_block_start)
       (item_contents
         (generic_tag_value_pair
+          (generic_tag_key)
           (generic_tag_value
             (value_data_range
                   (value_data_min)
@@ -138,24 +143,31 @@ Value data - REGISTRY_SETTING
       (custom_item_block_start)
       (item_contents
         (generic_tag_value_pair
+          (generic_tag_key)
           (generic_tag_value
             (unquoted_keyword)))
         (generic_tag_value_pair
+          (generic_tag_key)
           (generic_tag_value
             (double_quoted_string)))
         (generic_tag_value_pair
+          (generic_tag_key)
           (generic_tag_value
             (unquoted_keyword)))
         (generic_tag_value_pair
+          (generic_tag_key)
           (generic_tag_value
             (double_quoted_string)))
         (generic_tag_value_pair
+          (generic_tag_key)
           (generic_tag_value
             (double_quoted_string)))
         (generic_tag_value_pair
+          (generic_tag_key)
           (generic_tag_value
             (double_quoted_string)))
         (generic_tag_value_pair
+          (generic_tag_key)
           (generic_tag_value
             (unquoted_keyword))))
       (custom_item_block_end))))

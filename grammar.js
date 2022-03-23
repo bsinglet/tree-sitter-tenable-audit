@@ -51,7 +51,9 @@ module.exports = grammar({
 
     item_contents: $ => repeat1($.generic_tag_value_pair),
 
-    generic_tag_value_pair: $ => seq(/([a-z]|[A-Z]||_)+\s*:\s*/, $.generic_tag_value),
+    generic_tag_value_pair: $ => seq(field('key', $.generic_tag_key), field('value', $.generic_tag_value)),
+
+    generic_tag_key: $ => /([a-z]|[A-Z]||_)+\s*:\s*/,
 
     generic_tag_value: $ => choice($.unquoted_keyword, $.value_data_dword, $.value_data_range, $.double_quoted_string),
 
