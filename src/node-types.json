@@ -88,7 +88,15 @@
       "required": true,
       "types": [
         {
-          "type": "generic_tag_value_pair",
+          "type": "custom_item_block_end",
+          "named": true
+        },
+        {
+          "type": "custom_item_block_start",
+          "named": true
+        },
+        {
+          "type": "item_contents",
           "named": true
         }
       ]
@@ -256,10 +264,18 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "value_data_dword",
+          "named": true
+        },
+        {
+          "type": "value_data_max",
+          "named": true
+        },
+        {
+          "type": "value_data_min",
           "named": true
         }
       ]
@@ -267,6 +283,14 @@
   },
   {
     "type": "condition_block_end",
+    "named": true
+  },
+  {
+    "type": "custom_item_block_end",
+    "named": true
+  },
+  {
+    "type": "custom_item_block_start",
     "named": true
   },
   {
@@ -307,6 +331,14 @@
   },
   {
     "type": "value_data_dword",
+    "named": true
+  },
+  {
+    "type": "value_data_max",
+    "named": true
+  },
+  {
+    "type": "value_data_min",
     "named": true
   }
 ]

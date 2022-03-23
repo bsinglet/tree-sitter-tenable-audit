@@ -1,0 +1,19 @@
+<check_type:"Windows" version:"2">
+  <if>
+    <condition type:"or">
+      <item>
+        value: 2
+      </item>
+    </condition>
+    <then>
+      <item>
+        value: 1
+      </item>
+    </then>
+    <else>
+      <item>
+        value: 2
+      </item>
+    </else>
+  </if>
+</check_type>

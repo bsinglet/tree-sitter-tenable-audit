@@ -1,0 +1,161 @@
+=========================
+Value data - DWORD value
+=========================
+
+<check_type:"Windows" version:"2">
+  <item>
+    value: 5
+  </item>
+</check_type>
+
+---
+
+(source_file
+  (contents
+    (item_block
+      (item_block_start)
+      (item_contents
+        (generic_tag_value_pair
+          (generic_tag_value
+            (value_data_dword))))
+      (item_block_end))))
+
+=========================
+Value data - Range - 2 DWORDS
+=========================
+
+<check_type:"Windows" version:"2">
+  <item>
+    value: [11..9841]
+  </item>
+</check_type>
+
+---
+
+(source_file
+  (contents
+    (item_block
+      (item_block_start)
+      (item_contents
+        (generic_tag_value_pair
+          (generic_tag_value
+            (value_data_range
+                  (value_data_dword)
+                  (value_data_dword)))))
+      (item_block_end))))
+
+=========================
+Value data - Range - MIN and DWORD
+=========================
+
+<check_type:"Windows" version:"2">
+  <item>
+    value: [MIN..9841]
+  </item>
+</check_type>
+
+---
+
+(source_file
+  (contents
+    (item_block
+      (item_block_start)
+      (item_contents
+        (generic_tag_value_pair
+          (generic_tag_value
+            (value_data_range
+                  (value_data_min)
+                  (value_data_dword)))))
+      (item_block_end))))
+
+=========================
+Value data - Range - DWORD and MAX
+=========================
+
+<check_type:"Windows" version:"2">
+  <item>
+    value: [11..MAX]
+  </item>
+</check_type>
+
+---
+
+(source_file
+  (contents
+    (item_block
+      (item_block_start)
+      (item_contents
+        (generic_tag_value_pair
+          (generic_tag_value
+            (value_data_range
+                  (value_data_dword)
+                  (value_data_max)))))
+      (item_block_end))))
+
+=========================
+Value data - Range - MIN and MAX
+=========================
+
+<check_type:"Windows" version:"2">
+  <item>
+    value: [MIN..MAX]
+  </item>
+</check_type>
+
+---
+
+(source_file
+  (contents
+    (item_block
+      (item_block_start)
+      (item_contents
+        (generic_tag_value_pair
+          (generic_tag_value
+            (value_data_range
+                  (value_data_min)
+                  (value_data_max)))))
+      (item_block_end))))
+
+=========================
+Value data - REGISTRY_SETTING
+=========================
+<check_type:"Windows" version:"2">
+  <custom_item>
+    type        : REGISTRY_SETTING
+    description : "Windows Server 2012 is installed"
+    value_type  : POLICY_TEXT
+    value_data  : "^[a-zA-Z0-9\(\)\s]*2012(?!\s[rR]2)[a-zA-Z0-9\(\)\s]*$"
+    reg_key     : "HKLM\Software\Microsoft\Windows Nt\Currentversion"
+    reg_item    : "ProductName"
+    check_type  : CHECK_REGEX
+  </custom_item>
+</check_type>
+---
+
+(source_file
+  (contents
+    (custom_item_block
+      (custom_item_block_start)
+      (item_contents
+        (generic_tag_value_pair
+          (generic_tag_value
+            (unquoted_keyword)))
+        (generic_tag_value_pair
+          (generic_tag_value
+            (double_quoted_string)))
+        (generic_tag_value_pair
+          (generic_tag_value
+            (unquoted_keyword)))
+        (generic_tag_value_pair
+          (generic_tag_value
+            (double_quoted_string)))
+        (generic_tag_value_pair
+          (generic_tag_value
+            (double_quoted_string)))
+        (generic_tag_value_pair
+          (generic_tag_value
+            (double_quoted_string)))
+        (generic_tag_value_pair
+          (generic_tag_value
+            (unquoted_keyword))))
+      (custom_item_block_end))))

@@ -77,12 +77,18 @@ Or conditions - 2 checks
       (contents
         (item_block
           (item_block_start)
-          (item_contents)
+          (item_contents
+            (generic_tag_value_pair
+              (generic_tag_value
+                (value_data_dword))))
           (item_block_end)))
       (contents
         (item_block
           (item_block_start)
-          (item_contents)
+          (item_contents
+            (generic_tag_value_pair
+              (generic_tag_value
+                (value_data_dword))))
           (item_block_end)))
       (condition_block_end))
     (then_block
@@ -90,7 +96,10 @@ Or conditions - 2 checks
       (contents
         (item_block
           (item_block_start)
-          (item_contents)
+          (item_contents
+            (generic_tag_value_pair
+              (generic_tag_value
+                (value_data_dword))))
           (item_block_end)))
       (then_block_end))
     (if_block_end)))
@@ -130,17 +139,26 @@ And conditions - 3 checks
       (contents
         (item_block
           (item_block_start)
-          (item_contents)
+          (item_contents
+            (generic_tag_value_pair
+              (generic_tag_value
+                (value_data_dword))))
           (item_block_end)))
       (contents
         (item_block
           (item_block_start)
-          (item_contents)
+          (item_contents
+            (generic_tag_value_pair
+              (generic_tag_value
+                (value_data_dword))))
           (item_block_end)))
       (contents
         (item_block
           (item_block_start)
-          (item_contents)
+          (item_contents
+            (generic_tag_value_pair
+              (generic_tag_value
+                (value_data_dword))))
           (item_block_end)))
       (condition_block_end))
     (then_block
@@ -148,7 +166,10 @@ And conditions - 3 checks
       (contents
         (item_block
           (item_block_start)
-          (item_contents)
+          (item_contents
+            (generic_tag_value_pair
+              (generic_tag_value
+                (value_data_dword))))
           (item_block_end)))
       (then_block_end))
     (if_block_end)))
@@ -187,7 +208,10 @@ Else blocks
       (contents
         (item_block
           (item_block_start)
-          (item_contents)
+          (item_contents
+            (generic_tag_value_pair
+              (generic_tag_value
+                (value_data_dword))))
           (item_block_end)))
       (condition_block_end))
     (then_block
@@ -195,7 +219,10 @@ Else blocks
       (contents
         (item_block
           (item_block_start)
-          (item_contents)
+          (item_contents
+            (generic_tag_value_pair
+              (generic_tag_value
+                (value_data_dword))))
           (item_block_end)))
       (then_block_end))
     (else_block
@@ -203,7 +230,10 @@ Else blocks
       (contents
         (item_block
           (item_block_start)
-          (item_contents)
+          (item_contents
+            (generic_tag_value_pair
+              (generic_tag_value
+                (value_data_dword))))
           (item_block_end)))
       (else_block_end))
     (if_block_end)))

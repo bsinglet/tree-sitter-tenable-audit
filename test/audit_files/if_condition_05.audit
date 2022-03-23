@@ -1,0 +1,21 @@
+<check_type:"Windows" version:"2">
+<if>
+  <condition type:"AND">
+    <custom_item>
+      type        : REGISTRY_SETTING
+      description : "Windows Server 2012 is installed"
+      value_type  : POLICY_TEXT
+      value_data  : "^[a-zA-Z0-9\(\)\s]*2012(?!\s[rR]2)[a-zA-Z0-9\(\)\s]*$"
+      reg_key     : "HKLM\Software\Microsoft\Windows Nt\Currentversion"
+      reg_item    : "ProductName"
+      check_type  : CHECK_REGEX
+    </custom_item>
+  </condition>
+
+  <then>
+    <report type:"PASSED">
+      description : "CIS_DC_SERVER_2012_Level_1_v2.2.0.audit from CIS Security Benchmark For Microsoft Windows Server 2012 DC Level 1"
+    </report>
+  </then>
+</if>
+</check_type>

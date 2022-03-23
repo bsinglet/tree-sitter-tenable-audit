@@ -1,5 +1,5 @@
 {
-  "name": "tenable_audit",
+  "name": "treeSitterTenableAudit",
   "rules": {
     "source_file": {
       "type": "REPEAT1",
@@ -17,7 +17,7 @@
         },
         {
           "type": "PATTERN",
-          "value": "([A-Z]|[a-z]|\\s|(\\r)?\\n|\\d)*"
+          "value": "([A-Z]|[a-z]|\\-|\\$|\\^|\\[|\\]|\\(|\\)|\\\\|\\*|\\?|\\!|\\s|(\\r)?\\n|\\d)*"
         },
         {
           "type": "PATTERN",
@@ -268,7 +268,7 @@
       "members": [
         {
           "type": "PATTERN",
-          "value": "[a-z][a-z|_]*\\s*:\\s*"
+          "value": "([a-z]|[A-Z]||_)+\\s*:\\s*"
         },
         {
           "type": "SYMBOL",
@@ -301,6 +301,14 @@
       "type": "PATTERN",
       "value": "[+|-]?\\d+(\\.\\d+)?"
     },
+    "value_data_min": {
+      "type": "PATTERN",
+      "value": "MIN"
+    },
+    "value_data_max": {
+      "type": "PATTERN",
+      "value": "MAX"
+    },
     "value_data_range": {
       "type": "SEQ",
       "members": [
@@ -312,8 +320,8 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "PATTERN",
-              "value": "MIN"
+              "type": "SYMBOL",
+              "name": "value_data_min"
             },
             {
               "type": "SYMBOL",
@@ -329,8 +337,8 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "PATTERN",
-              "value": "MAX"
+              "type": "SYMBOL",
+              "name": "value_data_max"
             },
             {
               "type": "SYMBOL",
@@ -346,7 +354,7 @@
     },
     "unquoted_keyword": {
       "type": "PATTERN",
-      "value": "[a-z][a-z|_]*"
+      "value": "([a-z]|[A-Z]|_)+"
     },
     "item_block_end": {
       "type": "PATTERN",
@@ -356,21 +364,26 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "PATTERN",
-          "value": "<custom_item>"
+          "type": "SYMBOL",
+          "name": "custom_item_block_start"
         },
         {
-          "type": "REPEAT1",
-          "content": {
-            "type": "SYMBOL",
-            "name": "generic_tag_value_pair"
-          }
+          "type": "SYMBOL",
+          "name": "item_contents"
         },
         {
-          "type": "PATTERN",
-          "value": "<\\/custom_item>"
+          "type": "SYMBOL",
+          "name": "custom_item_block_end"
         }
       ]
+    },
+    "custom_item_block_start": {
+      "type": "PATTERN",
+      "value": "<custom_item>"
+    },
+    "custom_item_block_end": {
+      "type": "PATTERN",
+      "value": "<\\/custom_item>"
     },
     "acl_block": {
       "type": "SEQ",
