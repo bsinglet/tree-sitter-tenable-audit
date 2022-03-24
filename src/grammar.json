@@ -16,8 +16,20 @@
           "value": "\""
         },
         {
-          "type": "PATTERN",
-          "value": "([A-Z]|[a-z]|\\-|\\$|\\^|\\[|\\]|\\(|\\)|\\\\|\\*|\\?|\\!|\\s|(\\r)?\\n|\\d)*"
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "PATTERN",
+                "value": "([A-Z]|[a-z]|\\-|\\$|\\^|\\[|\\]|\\(|\\)|\\\\|\\*|\\?|\\!|\\w|\\d)"
+              },
+              {
+                "type": "PATTERN",
+                "value": "\\n"
+              }
+            ]
+          }
         },
         {
           "type": "PATTERN",

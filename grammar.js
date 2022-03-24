@@ -5,7 +5,7 @@ module.exports = grammar({
     // TODO: Modify this so you can have comments at the beginning or the end.
     source_file: $ => repeat1($._check_type_block),
 
-    double_quoted_string: $ => seq(/"/, /([A-Z]|[a-z]|\-|\$|\^|\[|\]|\(|\)|\\|\*|\?|\!|\s|(\r)?\n|\d)*/, /"/),
+    double_quoted_string: $ => seq(/"/, repeat(choice(/([A-Z]|[a-z]|\-|\$|\^|\[|\]|\(|\)|\\|\*|\?|\!|\w|\d)/, /\n/)), /"/),
 
     _check_type_block: $ => seq($._check_type_start, repeat($.contents), $._check_type_end),
 
