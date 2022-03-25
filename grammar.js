@@ -5,7 +5,7 @@ module.exports = grammar({
     // TODO: Modify this so you can have comments at the beginning or the end.
     source_file: $ => repeat1($._check_type_block),
 
-    double_quoted_string: $ => seq(/"/, repeat(choice(/([A-Z]|[a-z]|\-|\$|\^|\[|\]|\(|\)|\\|\*|\?|\!|\w|\d)/, /\n/)), /"/),
+    double_quoted_string: $ => prec(2, seq(/"/, repeat(choice(/([A-Z]|[a-z]|\+|\-|=|\$|\^|\[|\]|\(|\)|{|}|<|>|\\|\/|\*|,|\.|\||:|;|@|#|&|%|\?|\!|'|\w|\d)/, /\n/)), /"/)),
 
     _check_type_block: $ => seq($._check_type_start, repeat($._contents), $._check_type_end),
 
@@ -13,8 +13,7 @@ module.exports = grammar({
 
     _check_type_end: $ => /<\/check_type>/,
 
-    // removed $.comment,
-    _contents: $ => choice($.if_block, $.item_block, $.custom_item_block, $.acl_block, $.report),
+    _contents: $ => choice($.if_block, $.item_block, $.custom_item_block, $.acl_block, $.report_block),
 
     comment: $ => repeat1($.single_line_comment),
 
@@ -27,17 +26,17 @@ module.exports = grammar({
     // TODO - Verify that $._contents is the correct value inside of the condition block, or if it's just `item`s and `custom_item`s
     condition_block: $ => seq($._condition_block_start, repeat($._contents), $._condition_block_end),
 
-    _condition_block_start: $ => seq(/<condition type\s*:\s*/, choice(/"or"/, /"and"/), />/),
+    _condition_block_start: $ => seq(/<condition type\s*:\s*/, choice(/"or"/, /"OR"/, /"and"/, /"AND"/), />/),
 
     _condition_block_end: $ => /<\/condition>/,
 
-    then_block: $ => seq($._then_block_start, $._contents, $._then_block_end),
+    then_block: $ => seq($._then_block_start, repeat($._contents), $._then_block_end),
 
     _then_block_start: $ => /<then>/,
 
     _then_block_end: $ => /<\/then>/,
 
-    else_block: $ => seq($.else_block_start, $._contents, $.else_block_end),
+    else_block: $ => seq($.else_block_start, repeat($._contents), $.else_block_end),
 
     else_block_start: $ => /<else>/,
 
@@ -51,11 +50,12 @@ module.exports = grammar({
 
     _item_contents: $ => repeat1($.generic_tag_value_pair),
 
-    generic_tag_value_pair: $ => seq(field('key', $.generic_tag_key), field('value', $.generic_tag_value)),
+    generic_tag_value_pair: $ => seq(field('key', $.generic_tag_key), field('value', $._generic_tag_value)),
 
     generic_tag_key: $ => /([a-z]|[A-Z]||_)+\s*:\s*/,
 
-    generic_tag_value: $ => choice($.unquoted_keyword, $.value_data_dword, $.value_data_range, $.double_quoted_string),
+    // TODO - need to support additional ways of using logical operators with value_data conditions
+    _generic_tag_value: $ => choice($.unquoted_keyword, $.value_data_dword, $.value_data_range, seq($.double_quoted_string, optional(repeat(seq(/&&/, $.double_quoted_string))))),
 
     //item_tag_value_pairs: $ => alternatives($.item_name, $.item_value), // $.item_other_tag_pairs),
 
@@ -92,6 +92,8 @@ module.exports = grammar({
 
     acl_block: $ => seq(/<acl>/),
 
-    report: $ => seq(/<report>/)
+    report_block: $ => seq($._report_block_start, $._item_contents, $._report_block_end),
+    _report_block_start: $ => seq(/<report/, optional(seq(/type:/, $.double_quoted_string)), />/),
+    _report_block_end: $ => /<\/report>/,
   }
 });

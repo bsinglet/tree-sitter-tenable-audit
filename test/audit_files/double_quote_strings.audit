@@ -2,7 +2,8 @@
   <custom_item>
     some_quote       : " "
     other_quote      : ""
-    multi-line-quote : "a
+    multi_line_quote : "a   aaa 
 a"
+    final_value      : 222
   </custom_item>
 </check_type>

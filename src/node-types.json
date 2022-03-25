@@ -29,7 +29,7 @@
           "named": true
         },
         {
-          "type": "report",
+          "type": "report_block",
           "named": true
         }
       ]
@@ -88,34 +88,7 @@
           "named": true
         },
         {
-          "type": "report",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "generic_tag_value",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "double_quoted_string",
-          "named": true
-        },
-        {
-          "type": "unquoted_keyword",
-          "named": true
-        },
-        {
-          "type": "value_data_dword",
-          "named": true
-        },
-        {
-          "type": "value_data_range",
+          "type": "report_block",
           "named": true
         }
       ]
@@ -136,11 +109,23 @@
         ]
       },
       "value": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
           {
-            "type": "generic_tag_value",
+            "type": "double_quoted_string",
+            "named": true
+          },
+          {
+            "type": "unquoted_keyword",
+            "named": true
+          },
+          {
+            "type": "value_data_dword",
+            "named": true
+          },
+          {
+            "type": "value_data_range",
             "named": true
           }
         ]
@@ -186,9 +171,23 @@
     }
   },
   {
-    "type": "report",
+    "type": "report_block",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "double_quoted_string",
+          "named": true
+        },
+        {
+          "type": "generic_tag_value_pair",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "source_file",
@@ -215,7 +214,7 @@
           "named": true
         },
         {
-          "type": "report",
+          "type": "report_block",
           "named": true
         }
       ]
@@ -226,8 +225,8 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
-      "required": true,
+      "multiple": true,
+      "required": false,
       "types": [
         {
           "type": "acl_block",
@@ -246,7 +245,7 @@
           "named": true
         },
         {
-          "type": "report",
+          "type": "report_block",
           "named": true
         }
       ]
