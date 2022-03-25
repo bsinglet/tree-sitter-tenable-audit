@@ -233,7 +233,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "else_block_start"
+          "name": "_else_block_start"
         },
         {
           "type": "REPEAT",
@@ -244,15 +244,15 @@
         },
         {
           "type": "SYMBOL",
-          "name": "else_block_end"
+          "name": "_else_block_end"
         }
       ]
     },
-    "else_block_start": {
+    "_else_block_start": {
       "type": "PATTERN",
       "value": "<else>"
     },
-    "else_block_end": {
+    "_else_block_end": {
       "type": "PATTERN",
       "value": "<\\/else>"
     },

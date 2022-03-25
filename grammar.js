@@ -36,11 +36,11 @@ module.exports = grammar({
 
     _then_block_end: $ => /<\/then>/,
 
-    else_block: $ => seq($.else_block_start, repeat($._contents), $.else_block_end),
+    else_block: $ => seq($._else_block_start, repeat($._contents), $._else_block_end),
 
-    else_block_start: $ => /<else>/,
+    _else_block_start: $ => /<else>/,
 
-    else_block_end: $ => /<\/else>/,
+    _else_block_end: $ => /<\/else>/,
 
     _if_block_end: $ => seq(/<\/if>/),
 

@@ -19,33 +19,17 @@ Or conditions - 1 check
 ---
 
 (source_file
-  (contents
-    (if_block_start)
+  (if_block
     (condition_block
-      (condition_block_start)
-      (contents
-        (item_block
-          (item_block_start)
-          (item_contents
-            (generic_tag_value_pair
-              (generic_tag_key)
-              (generic_tag_value
-                (value_data_dword))))
-        (item_block_end)))
-      (condition_block_end))
+      (item_block
+        (generic_tag_value_pair
+          (generic_tag_key)
+          (value_data_dword))))
     (then_block
-      (then_block_start)
-      (contents
-        (item_block
-          (item_block_start)
-          (item_contents
-            (generic_tag_value_pair
-              (generic_tag_key)
-              (generic_tag_value
-                (value_data_dword))))
-          (item_block_end)))
-        (then_block_end))
-    (if_block_end)))
+      (item_block
+        (generic_tag_value_pair
+          (generic_tag_key)
+          (value_data_dword))))))
 
 =========================
 Or conditions - 2 checks
@@ -72,42 +56,21 @@ Or conditions - 2 checks
 ---
 
 (source_file
-  (contents
-    (if_block_start)
+  (if_block
     (condition_block
-      (condition_block_start)
-      (contents
-        (item_block
-          (item_block_start)
-          (item_contents
-            (generic_tag_value_pair
-              (generic_tag_key)
-              (generic_tag_value
-                (value_data_dword))))
-          (item_block_end)))
-      (contents
-        (item_block
-          (item_block_start)
-          (item_contents
-            (generic_tag_value_pair
-              (generic_tag_key)
-              (generic_tag_value
-                (value_data_dword))))
-          (item_block_end)))
-      (condition_block_end))
+      (item_block
+        (generic_tag_value_pair
+          (generic_tag_key)
+          (value_data_dword)))
+      (item_block
+        (generic_tag_value_pair
+          (generic_tag_key)
+          (value_data_dword))))
     (then_block
-      (then_block_start)
-      (contents
-        (item_block
-          (item_block_start)
-          (item_contents
-            (generic_tag_value_pair
-              (generic_tag_key)
-              (generic_tag_value
-                (value_data_dword))))
-          (item_block_end)))
-      (then_block_end))
-    (if_block_end)))
+      (item_block
+        (generic_tag_value_pair
+          (generic_tag_key)
+          (value_data_dword))))))
 
 =========================
 And conditions - 3 checks
@@ -137,51 +100,25 @@ And conditions - 3 checks
 ---
 
 (source_file
-  (contents
-    (if_block_start)
+  (if_block
     (condition_block
-      (condition_block_start)
-      (contents
-        (item_block
-          (item_block_start)
-          (item_contents
-            (generic_tag_value_pair
-              (generic_tag_key)
-              (generic_tag_value
-                (value_data_dword))))
-          (item_block_end)))
-      (contents
-        (item_block
-          (item_block_start)
-          (item_contents
-            (generic_tag_value_pair
-              (generic_tag_key)
-              (generic_tag_value
-                (value_data_dword))))
-          (item_block_end)))
-      (contents
-        (item_block
-          (item_block_start)
-          (item_contents
-            (generic_tag_value_pair
-              (generic_tag_key)
-              (generic_tag_value
-                (value_data_dword))))
-          (item_block_end)))
-      (condition_block_end))
+      (item_block
+        (generic_tag_value_pair
+          (generic_tag_key)
+          (value_data_dword)))
+      (item_block
+        (generic_tag_value_pair
+          (generic_tag_key)
+          (value_data_dword)))
+      (item_block
+        (generic_tag_value_pair
+          (generic_tag_key)
+          (value_data_dword))))
     (then_block
-      (then_block_start)
-      (contents
-        (item_block
-          (item_block_start)
-          (item_contents
-            (generic_tag_value_pair
-              (generic_tag_key)
-              (generic_tag_value
-                (value_data_dword))))
-          (item_block_end)))
-      (then_block_end))
-    (if_block_end)))
+      (item_block
+        (generic_tag_value_pair
+          (generic_tag_key)
+          (value_data_dword))))))
 
 ============
 Else blocks
@@ -210,42 +147,19 @@ Else blocks
 ---
 
 (source_file
-  (contents
-    (if_block_start)
+  (if_block
     (condition_block
-      (condition_block_start)
-      (contents
-        (item_block
-          (item_block_start)
-          (item_contents
-            (generic_tag_value_pair
-              (generic_tag_key)
-              (generic_tag_value
-                (value_data_dword))))
-          (item_block_end)))
-      (condition_block_end))
+      (item_block
+        (generic_tag_value_pair
+          (generic_tag_key)
+          (value_data_dword))))
     (then_block
-      (then_block_start)
-      (contents
-        (item_block
-          (item_block_start)
-          (item_contents
-            (generic_tag_value_pair
-              (generic_tag_key)
-              (generic_tag_value
-                (value_data_dword))))
-          (item_block_end)))
-      (then_block_end))
+      (item_block
+        (generic_tag_value_pair
+          (generic_tag_key)
+          (value_data_dword))))
     (else_block
-      (else_block_start)
-      (contents
-        (item_block
-          (item_block_start)
-          (item_contents
-            (generic_tag_value_pair
-              (generic_tag_key)
-              (generic_tag_value
-                (value_data_dword))))
-          (item_block_end)))
-      (else_block_end))
-    (if_block_end)))
+      (item_block
+        (generic_tag_value_pair
+          (generic_tag_key)
+          (value_data_dword))))))

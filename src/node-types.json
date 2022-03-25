@@ -61,7 +61,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "acl_block",
@@ -69,14 +69,6 @@
         },
         {
           "type": "custom_item_block",
-          "named": true
-        },
-        {
-          "type": "else_block_end",
-          "named": true
-        },
-        {
-          "type": "else_block_start",
           "named": true
         },
         {
@@ -273,14 +265,6 @@
         }
       ]
     }
-  },
-  {
-    "type": "else_block_end",
-    "named": true
-  },
-  {
-    "type": "else_block_start",
-    "named": true
   },
   {
     "type": "generic_tag_key",

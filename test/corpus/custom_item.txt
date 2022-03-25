@@ -11,15 +11,10 @@ Value data - DWORD value
 ---
 
 (source_file
-  (contents
-    (item_block
-      (item_block_start)
-      (item_contents
-        (generic_tag_value_pair
-          (generic_tag_key)
-          (generic_tag_value
-            (value_data_dword))))
-      (item_block_end))))
+  (item_block
+    (generic_tag_value_pair
+      (generic_tag_key)
+      (value_data_dword))))
 
 =========================
 Value data - Range - 2 DWORDS
@@ -34,17 +29,12 @@ Value data - Range - 2 DWORDS
 ---
 
 (source_file
-  (contents
-    (item_block
-      (item_block_start)
-      (item_contents
-        (generic_tag_value_pair
-          (generic_tag_key)
-          (generic_tag_value
-            (value_data_range
-                  (value_data_dword)
-                  (value_data_dword)))))
-      (item_block_end))))
+  (item_block
+    (generic_tag_value_pair
+      (generic_tag_key)
+      (value_data_range
+        (value_data_dword)
+        (value_data_dword)))))
 
 =========================
 Value data - Range - MIN and DWORD
@@ -59,17 +49,12 @@ Value data - Range - MIN and DWORD
 ---
 
 (source_file
-  (contents
-    (item_block
-      (item_block_start)
-      (item_contents
-        (generic_tag_value_pair
-          (generic_tag_key)
-          (generic_tag_value
-            (value_data_range
-                  (value_data_min)
-                  (value_data_dword)))))
-      (item_block_end))))
+  (item_block
+    (generic_tag_value_pair
+      (generic_tag_key)
+      (value_data_range
+        (value_data_min)
+        (value_data_dword)))))
 
 =========================
 Value data - Range - DWORD and MAX
@@ -84,17 +69,12 @@ Value data - Range - DWORD and MAX
 ---
 
 (source_file
-  (contents
-    (item_block
-      (item_block_start)
-      (item_contents
-        (generic_tag_value_pair
-          (generic_tag_key)
-          (generic_tag_value
-            (value_data_range
-                  (value_data_dword)
-                  (value_data_max)))))
-      (item_block_end))))
+  (item_block
+    (generic_tag_value_pair
+    (generic_tag_key)
+    (value_data_range
+      (value_data_dword)
+      (value_data_max)))))
 
 =========================
 Value data - Range - MIN and MAX
@@ -109,17 +89,12 @@ Value data - Range - MIN and MAX
 ---
 
 (source_file
-  (contents
-    (item_block
-      (item_block_start)
-      (item_contents
-        (generic_tag_value_pair
-          (generic_tag_key)
-          (generic_tag_value
-            (value_data_range
-                  (value_data_min)
-                  (value_data_max)))))
-      (item_block_end))))
+  (item_block
+    (generic_tag_value_pair
+      (generic_tag_key)
+      (value_data_range
+        (value_data_min)
+        (value_data_max)))))
 
 =========================
 Value data - REGISTRY_SETTING
@@ -138,36 +113,25 @@ Value data - REGISTRY_SETTING
 ---
 
 (source_file
-  (contents
-    (custom_item_block
-      (custom_item_block_start)
-      (item_contents
+      (custom_item_block
         (generic_tag_value_pair
           (generic_tag_key)
-          (generic_tag_value
-            (unquoted_keyword)))
+          (unquoted_keyword))
         (generic_tag_value_pair
           (generic_tag_key)
-          (generic_tag_value
-            (double_quoted_string)))
+          (double_quoted_string))
         (generic_tag_value_pair
           (generic_tag_key)
-          (generic_tag_value
-            (unquoted_keyword)))
+          (unquoted_keyword))
         (generic_tag_value_pair
           (generic_tag_key)
-          (generic_tag_value
-            (double_quoted_string)))
+          (double_quoted_string))
         (generic_tag_value_pair
           (generic_tag_key)
-          (generic_tag_value
-            (double_quoted_string)))
+          (double_quoted_string))
         (generic_tag_value_pair
           (generic_tag_key)
-          (generic_tag_value
-            (double_quoted_string)))
+          (double_quoted_string))
         (generic_tag_value_pair
           (generic_tag_key)
-          (generic_tag_value
-            (unquoted_keyword))))
-      (custom_item_block_end))))
+          (unquoted_keyword))))

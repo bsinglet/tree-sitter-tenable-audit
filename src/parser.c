@@ -32,8 +32,8 @@ enum {
   sym__condition_block_end = 13,
   sym__then_block_start = 14,
   sym__then_block_end = 15,
-  sym_else_block_start = 16,
-  sym_else_block_end = 17,
+  sym__else_block_start = 16,
+  sym__else_block_end = 17,
   aux_sym__if_block_end_token1 = 18,
   sym__item_block_start = 19,
   sym_generic_tag_key = 20,
@@ -94,8 +94,8 @@ static const char * const ts_symbol_names[] = {
   [sym__condition_block_end] = "_condition_block_end",
   [sym__then_block_start] = "_then_block_start",
   [sym__then_block_end] = "_then_block_end",
-  [sym_else_block_start] = "else_block_start",
-  [sym_else_block_end] = "else_block_end",
+  [sym__else_block_start] = "_else_block_start",
+  [sym__else_block_end] = "_else_block_end",
   [aux_sym__if_block_end_token1] = "_if_block_end_token1",
   [sym__item_block_start] = "_item_block_start",
   [sym_generic_tag_key] = "generic_tag_key",
@@ -156,8 +156,8 @@ static const TSSymbol ts_symbol_map[] = {
   [sym__condition_block_end] = sym__condition_block_end,
   [sym__then_block_start] = sym__then_block_start,
   [sym__then_block_end] = sym__then_block_end,
-  [sym_else_block_start] = sym_else_block_start,
-  [sym_else_block_end] = sym_else_block_end,
+  [sym__else_block_start] = sym__else_block_start,
+  [sym__else_block_end] = sym__else_block_end,
   [aux_sym__if_block_end_token1] = aux_sym__if_block_end_token1,
   [sym__item_block_start] = sym__item_block_start,
   [sym_generic_tag_key] = sym_generic_tag_key,
@@ -266,12 +266,12 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = false,
     .named = true,
   },
-  [sym_else_block_start] = {
-    .visible = true,
+  [sym__else_block_start] = {
+    .visible = false,
     .named = true,
   },
-  [sym_else_block_end] = {
-    .visible = true,
+  [sym__else_block_end] = {
+    .visible = false,
     .named = true,
   },
   [aux_sym__if_block_end_token1] = {
@@ -1138,10 +1138,10 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       ACCEPT_TOKEN(sym__then_block_end);
       END_STATE();
     case 176:
-      ACCEPT_TOKEN(sym_else_block_start);
+      ACCEPT_TOKEN(sym__else_block_start);
       END_STATE();
     case 177:
-      ACCEPT_TOKEN(sym_else_block_end);
+      ACCEPT_TOKEN(sym__else_block_end);
       END_STATE();
     case 178:
       ACCEPT_TOKEN(aux_sym__if_block_end_token1);
@@ -1317,7 +1317,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym__check_type_end,
       sym__condition_block_end,
       sym__then_block_end,
-      sym_else_block_end,
+      sym__else_block_end,
     STATE(2), 7,
       sym__contents,
       sym_if_block,
@@ -1330,7 +1330,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(22), 1,
       sym__if_block_start,
     ACTIONS(24), 1,
-      sym_else_block_end,
+      sym__else_block_end,
     ACTIONS(26), 1,
       sym__item_block_start,
     ACTIONS(28), 1,
@@ -1430,7 +1430,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(32), 1,
       aux_sym__report_block_start_token1,
     ACTIONS(40), 1,
-      sym_else_block_end,
+      sym__else_block_end,
     STATE(39), 1,
       sym__report_block_start,
     STATE(2), 7,
@@ -1516,7 +1516,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym__if_block_start,
       sym__condition_block_end,
       sym__then_block_end,
-      sym_else_block_end,
+      sym__else_block_end,
       sym__item_block_start,
       sym__custom_item_block_start,
       aux_sym_acl_block_token1,
@@ -1527,7 +1527,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym__if_block_start,
       sym__condition_block_end,
       sym__then_block_end,
-      sym_else_block_end,
+      sym__else_block_end,
       sym__item_block_start,
       sym__custom_item_block_start,
       aux_sym_acl_block_token1,
@@ -1538,7 +1538,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym__if_block_start,
       sym__condition_block_end,
       sym__then_block_end,
-      sym_else_block_end,
+      sym__else_block_end,
       sym__item_block_start,
       sym__custom_item_block_start,
       aux_sym_acl_block_token1,
@@ -1549,7 +1549,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym__if_block_start,
       sym__condition_block_end,
       sym__then_block_end,
-      sym_else_block_end,
+      sym__else_block_end,
       sym__item_block_start,
       sym__custom_item_block_start,
       aux_sym_acl_block_token1,
@@ -1560,7 +1560,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym__if_block_start,
       sym__condition_block_end,
       sym__then_block_end,
-      sym_else_block_end,
+      sym__else_block_end,
       sym__item_block_start,
       sym__custom_item_block_start,
       aux_sym_acl_block_token1,
@@ -1571,7 +1571,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym__if_block_start,
       sym__condition_block_end,
       sym__then_block_end,
-      sym_else_block_end,
+      sym__else_block_end,
       sym__item_block_start,
       sym__custom_item_block_start,
       aux_sym_acl_block_token1,
@@ -1677,7 +1677,7 @@ static const uint16_t ts_small_parse_table[] = {
       aux_sym_double_quoted_string_repeat1,
   [479] = 4,
     ACTIONS(98), 1,
-      sym_else_block_start,
+      sym__else_block_start,
     ACTIONS(100), 1,
       aux_sym__if_block_end_token1,
     STATE(12), 1,
@@ -1789,7 +1789,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym__check_type_start,
   [631] = 1,
     ACTIONS(139), 2,
-      sym_else_block_start,
+      sym__else_block_start,
       aux_sym__if_block_end_token1,
   [636] = 2,
     ACTIONS(141), 1,
@@ -1826,7 +1826,7 @@ static const uint16_t ts_small_parse_table[] = {
       aux_sym__report_block_start_token2,
   [681] = 1,
     ACTIONS(153), 2,
-      sym_else_block_start,
+      sym__else_block_start,
       aux_sym__if_block_end_token1,
   [686] = 1,
     ACTIONS(155), 1,
