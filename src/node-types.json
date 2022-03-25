@@ -10,42 +10,10 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "condition_block_end",
-          "named": true
-        },
-        {
-          "type": "condition_block_start",
-          "named": true
-        },
-        {
-          "type": "contents",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "condition_block_start",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "contents",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "acl_block",
-          "named": true
-        },
-        {
-          "type": "condition_block",
           "named": true
         },
         {
@@ -53,15 +21,7 @@
           "named": true
         },
         {
-          "type": "else_block",
-          "named": true
-        },
-        {
-          "type": "if_block_end",
-          "named": true
-        },
-        {
-          "type": "if_block_start",
+          "type": "if_block",
           "named": true
         },
         {
@@ -70,10 +30,6 @@
         },
         {
           "type": "report",
-          "named": true
-        },
-        {
-          "type": "then_block",
           "named": true
         }
       ]
@@ -88,15 +44,7 @@
       "required": true,
       "types": [
         {
-          "type": "custom_item_block_end",
-          "named": true
-        },
-        {
-          "type": "custom_item_block_start",
-          "named": true
-        },
-        {
-          "type": "item_contents",
+          "type": "generic_tag_value_pair",
           "named": true
         }
       ]
@@ -116,7 +64,11 @@
       "required": true,
       "types": [
         {
-          "type": "contents",
+          "type": "acl_block",
+          "named": true
+        },
+        {
+          "type": "custom_item_block",
           "named": true
         },
         {
@@ -125,6 +77,18 @@
         },
         {
           "type": "else_block_start",
+          "named": true
+        },
+        {
+          "type": "if_block",
+          "named": true
+        },
+        {
+          "type": "item_block",
+          "named": true
+        },
+        {
+          "type": "report",
           "named": true
         }
       ]
@@ -184,12 +148,7 @@
     }
   },
   {
-    "type": "if_block_end",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "item_block",
+    "type": "if_block",
     "named": true,
     "fields": {},
     "children": {
@@ -197,22 +156,22 @@
       "required": true,
       "types": [
         {
-          "type": "item_block_end",
+          "type": "condition_block",
           "named": true
         },
         {
-          "type": "item_block_start",
+          "type": "else_block",
           "named": true
         },
         {
-          "type": "item_contents",
+          "type": "then_block",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "item_contents",
+    "type": "item_block",
     "named": true,
     "fields": {},
     "children": {
@@ -240,7 +199,23 @@
       "required": false,
       "types": [
         {
-          "type": "contents",
+          "type": "acl_block",
+          "named": true
+        },
+        {
+          "type": "custom_item_block",
+          "named": true
+        },
+        {
+          "type": "if_block",
+          "named": true
+        },
+        {
+          "type": "item_block",
+          "named": true
+        },
+        {
+          "type": "report",
           "named": true
         }
       ]
@@ -251,19 +226,27 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
-          "type": "contents",
+          "type": "acl_block",
           "named": true
         },
         {
-          "type": "then_block_end",
+          "type": "custom_item_block",
           "named": true
         },
         {
-          "type": "then_block_start",
+          "type": "if_block",
+          "named": true
+        },
+        {
+          "type": "item_block",
+          "named": true
+        },
+        {
+          "type": "report",
           "named": true
         }
       ]
@@ -293,18 +276,6 @@
     }
   },
   {
-    "type": "condition_block_end",
-    "named": true
-  },
-  {
-    "type": "custom_item_block_end",
-    "named": true
-  },
-  {
-    "type": "custom_item_block_start",
-    "named": true
-  },
-  {
     "type": "else_block_end",
     "named": true
   },
@@ -317,27 +288,7 @@
     "named": true
   },
   {
-    "type": "if_block_start",
-    "named": true
-  },
-  {
-    "type": "item_block_end",
-    "named": true
-  },
-  {
-    "type": "item_block_start",
-    "named": true
-  },
-  {
     "type": "single_line_comment",
-    "named": true
-  },
-  {
-    "type": "then_block_end",
-    "named": true
-  },
-  {
-    "type": "then_block_start",
     "named": true
   },
   {

@@ -7,49 +7,49 @@ module.exports = grammar({
 
     double_quoted_string: $ => seq(/"/, repeat(choice(/([A-Z]|[a-z]|\-|\$|\^|\[|\]|\(|\)|\\|\*|\?|\!|\w|\d)/, /\n/)), /"/),
 
-    _check_type_block: $ => seq($._check_type_start, repeat($.contents), $._check_type_end),
+    _check_type_block: $ => seq($._check_type_start, repeat($._contents), $._check_type_end),
 
     _check_type_start: $ => /<\s*check_type\s*:\s*"Windows"\s*version\s*:\s*"2"\s*>/,
 
     _check_type_end: $ => /<\/check_type>/,
 
     // removed $.comment,
-    contents: $ => choice($._if_block, $.item_block, $.custom_item_block, $.acl_block, $.report),
+    _contents: $ => choice($.if_block, $.item_block, $.custom_item_block, $.acl_block, $.report),
 
     comment: $ => repeat1($.single_line_comment),
 
     single_line_comment: $ => /#.*/,
 
-    _if_block: $ => seq($.if_block_start, $.condition_block, $.then_block, optional($.else_block), $.if_block_end),
+    if_block: $ => seq($._if_block_start, $.condition_block, $.then_block, optional($.else_block), $._if_block_end),
 
-    if_block_start: $ => /<\s*if\s*>/,
+    _if_block_start: $ => /<\s*if\s*>/,
 
-    // TODO - Verify that $.contents is the correct value inside of the condition block, or if it's just `item`s and `custom_item`s
-    condition_block: $ => seq($.condition_block_start, repeat($.contents), $.condition_block_end),
+    // TODO - Verify that $._contents is the correct value inside of the condition block, or if it's just `item`s and `custom_item`s
+    condition_block: $ => seq($._condition_block_start, repeat($._contents), $._condition_block_end),
 
-    condition_block_start: $ => seq(/<condition type\s*:\s*/, choice(/"or"/, /"and"/), />/),
+    _condition_block_start: $ => seq(/<condition type\s*:\s*/, choice(/"or"/, /"and"/), />/),
 
-    condition_block_end: $ => /<\/condition>/,
+    _condition_block_end: $ => /<\/condition>/,
 
-    then_block: $ => seq($.then_block_start, $.contents, $.then_block_end),
+    then_block: $ => seq($._then_block_start, $._contents, $._then_block_end),
 
-    then_block_start: $ => /<then>/,
+    _then_block_start: $ => /<then>/,
 
-    then_block_end: $ => /<\/then>/,
+    _then_block_end: $ => /<\/then>/,
 
-    else_block: $ => seq($.else_block_start, $.contents, $.else_block_end),
+    else_block: $ => seq($.else_block_start, $._contents, $.else_block_end),
 
     else_block_start: $ => /<else>/,
 
     else_block_end: $ => /<\/else>/,
 
-    if_block_end: $ => seq(/<\/if>/),
+    _if_block_end: $ => seq(/<\/if>/),
 
-    item_block: $ => seq($.item_block_start, $.item_contents, $.item_block_end),
+    item_block: $ => seq($._item_block_start, $._item_contents, $._item_block_end),
 
-    item_block_start: $ => /<item>/,
+    _item_block_start: $ => /<item>/,
 
-    item_contents: $ => repeat1($.generic_tag_value_pair),
+    _item_contents: $ => repeat1($.generic_tag_value_pair),
 
     generic_tag_value_pair: $ => seq(field('key', $.generic_tag_key), field('value', $.generic_tag_value)),
 
@@ -75,11 +75,11 @@ module.exports = grammar({
 
     //item_other_tag_pairs: $ => seq(),
 
-    item_block_end: $ => /<\/item>/,
+    _item_block_end: $ => /<\/item>/,
 
-    custom_item_block: $ => seq($.custom_item_block_start, $.item_contents, $.custom_item_block_end),
-    custom_item_block_start: $ => /<custom_item>/,
-    custom_item_block_end: $ => /<\/custom_item>/,
+    custom_item_block: $ => seq($._custom_item_block_start, $._item_contents, $._custom_item_block_end),
+    _custom_item_block_start: $ => /<custom_item>/,
+    _custom_item_block_end: $ => /<\/custom_item>/,
 
 
     //custom_item_tag_value_pairs: $ => choice($.custom_item_type, $.custom_item_description, $.custom_item_value_type, $.custom_item_value_data, $.custom_item_check_type, $.custom_item_x_policy, $.generic_tag_value_pair),

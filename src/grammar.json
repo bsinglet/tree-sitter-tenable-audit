@@ -48,7 +48,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "contents"
+            "name": "_contents"
           }
         },
         {
@@ -65,12 +65,12 @@
       "type": "PATTERN",
       "value": "<\\/check_type>"
     },
-    "contents": {
+    "_contents": {
       "type": "CHOICE",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_if_block"
+          "name": "if_block"
         },
         {
           "type": "SYMBOL",
@@ -101,12 +101,12 @@
       "type": "PATTERN",
       "value": "#.*"
     },
-    "_if_block": {
+    "if_block": {
       "type": "SEQ",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "if_block_start"
+          "name": "_if_block_start"
         },
         {
           "type": "SYMBOL",
@@ -130,11 +130,11 @@
         },
         {
           "type": "SYMBOL",
-          "name": "if_block_end"
+          "name": "_if_block_end"
         }
       ]
     },
-    "if_block_start": {
+    "_if_block_start": {
       "type": "PATTERN",
       "value": "<\\s*if\\s*>"
     },
@@ -143,22 +143,22 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "condition_block_start"
+          "name": "_condition_block_start"
         },
         {
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "contents"
+            "name": "_contents"
           }
         },
         {
           "type": "SYMBOL",
-          "name": "condition_block_end"
+          "name": "_condition_block_end"
         }
       ]
     },
-    "condition_block_start": {
+    "_condition_block_start": {
       "type": "SEQ",
       "members": [
         {
@@ -184,7 +184,7 @@
         }
       ]
     },
-    "condition_block_end": {
+    "_condition_block_end": {
       "type": "PATTERN",
       "value": "<\\/condition>"
     },
@@ -193,23 +193,23 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "then_block_start"
+          "name": "_then_block_start"
         },
         {
           "type": "SYMBOL",
-          "name": "contents"
+          "name": "_contents"
         },
         {
           "type": "SYMBOL",
-          "name": "then_block_end"
+          "name": "_then_block_end"
         }
       ]
     },
-    "then_block_start": {
+    "_then_block_start": {
       "type": "PATTERN",
       "value": "<then>"
     },
-    "then_block_end": {
+    "_then_block_end": {
       "type": "PATTERN",
       "value": "<\\/then>"
     },
@@ -222,7 +222,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "contents"
+          "name": "_contents"
         },
         {
           "type": "SYMBOL",
@@ -238,7 +238,7 @@
       "type": "PATTERN",
       "value": "<\\/else>"
     },
-    "if_block_end": {
+    "_if_block_end": {
       "type": "SEQ",
       "members": [
         {
@@ -252,23 +252,23 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "item_block_start"
+          "name": "_item_block_start"
         },
         {
           "type": "SYMBOL",
-          "name": "item_contents"
+          "name": "_item_contents"
         },
         {
           "type": "SYMBOL",
-          "name": "item_block_end"
+          "name": "_item_block_end"
         }
       ]
     },
-    "item_block_start": {
+    "_item_block_start": {
       "type": "PATTERN",
       "value": "<item>"
     },
-    "item_contents": {
+    "_item_contents": {
       "type": "REPEAT1",
       "content": {
         "type": "SYMBOL",
@@ -380,7 +380,7 @@
       "type": "PATTERN",
       "value": "([a-z]|[A-Z]|_)+"
     },
-    "item_block_end": {
+    "_item_block_end": {
       "type": "PATTERN",
       "value": "<\\/item>"
     },
@@ -389,23 +389,23 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "custom_item_block_start"
+          "name": "_custom_item_block_start"
         },
         {
           "type": "SYMBOL",
-          "name": "item_contents"
+          "name": "_item_contents"
         },
         {
           "type": "SYMBOL",
-          "name": "custom_item_block_end"
+          "name": "_custom_item_block_end"
         }
       ]
     },
-    "custom_item_block_start": {
+    "_custom_item_block_start": {
       "type": "PATTERN",
       "value": "<custom_item>"
     },
-    "custom_item_block_end": {
+    "_custom_item_block_end": {
       "type": "PATTERN",
       "value": "<\\/custom_item>"
     },
