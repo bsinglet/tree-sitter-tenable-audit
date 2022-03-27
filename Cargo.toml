@@ -1,8 +1,8 @@
 [package]
-name = "tree-sitter-tenable-audit"
+name = "tree-sitter-tenableAudit"
 description = "tenable-audit grammar for the tree-sitter parsing library"
 version = "0.0.1"
-keywords = ["incremental", "parsing", "tenable-audit"]
+keywords = ["incremental", "parsing", "tenableAudit"]
 categories = ["parsing", "text-editors"]
 repository = "https://github.com/tree-sitter/tree-sitter-tenable-audit"
 edition = "2018"
